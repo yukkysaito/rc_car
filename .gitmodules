@@ -1,3 +1,6 @@
 [submodule "bldc-tool"]
 	path = bldc-tool
 	url = git@github.com:vedderb/bldc-tool.git
+[submodule "catkin_ws/src/racecar"]
+	path = catkin_ws/src/racecar
+	url = git@github.com:mit-racecar/racecar.git
