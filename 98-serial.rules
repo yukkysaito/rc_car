@@ -1,0 +1,4 @@
+#IMU
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="IMU", MODE="0666"
+#ArduinoNano
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="ArduinoNano", MODE="0666"
