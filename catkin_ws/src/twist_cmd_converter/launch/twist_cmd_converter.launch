@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="twist_cmd_converter" name="twist_cmd_converter" type="twist_cmd_converter_node" >
+		<remap from="twist_in" to="/twist_cmd"/>
+		<remap from="twist_out" to="/vesc/low_level/ackermann_cmd_mux/input/teleop" />
+		<param name="weight_linear_x" type="double" value="1.0"/>
+		<param name="weight_angular_z" type="double" value="1.0"/>
+	</node>
+</launch>

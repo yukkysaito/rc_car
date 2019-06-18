@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="world_to_map" args="0 0 0 0 -0 0. /world /map 10" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_to_r200_link" args="0.23 0 0.15 0 0 0 /base_link /R200_link 10" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_to_structure_sensor_link" args="0.23 0 0.19 0 0 0 /base_link /structure_sensor_link 10" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_to_base_imu_link" args="0.26 0 0.08 0 0 0 /base_link /base_imu_link 10" />
+    <node pkg="tf" type="static_transform_publisher" name="baselink_to_velodyne" args="0.08 0 0.22 0 0 0 /base_link /velodyne 10" />
+</launch>

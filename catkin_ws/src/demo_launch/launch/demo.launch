@@ -1,0 +1,28 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<include file="$(find tf_publisher)/launch/tf_local.launch" />
+	<include file="$(find twist_cmd_converter)/launch/twist_cmd_converter.launch" />
+	<include file="$(find razor_imu_9dof)/launch/razor-pub.launch" />
+	<node name="arduino_controller" pkg="rosserial_python" type="serial_node.py">
+		<param name="_port" value="/dev/ArduinoNano" />
+	</node>
+	<group ns="r200" >
+	       <include file="$(find demo_launch)/launch/r200.launch" />
+	</group>
+
+	<group ns="structure_sensor" >
+		<include file="$(find demo_launch)/launch/structure_sensor.launch" />
+	</group>
+
+  <arg name="racecar_version" default="racecar-v2" />
+  <group ns="vesc">
+    <!-- Spawn MUXs -->
+    <include file="$(find racecar)/launch/mux.launch" />
+
+    <!-- start electronic speed controller driver -->
+    <include file="$(find racecar)/launch/includes/$(arg racecar_version)/vesc.launch.xml" >
+      <arg name="racecar_version" value="$(arg racecar_version)" />
+    </include>
+  </group>
+
+</launch>

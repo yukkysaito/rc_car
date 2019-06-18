@@ -1,0 +1,10 @@
+<launch>
+	<node pkg="pointcloud_filter" name="voxel_grid_filter" type="voxel_grid_filter_node" >
+		<remap from="voxel_grid_filter_in" to="/r200/R200/depth/points"/>
+		<remap from="voxel_grid_filter_out" to="/voxel_grid_filtered_points" />
+	</node>
+	<node pkg="pointcloud_filter" name="outlier_filter" type="outlier_filter_node" >
+		<remap from="outlier_filter_in" to="/voxel_grid_filtered_points"/>
+		<remap from="outlier_filter_out" to="/points_raw" />
+	</node>
+</launch>

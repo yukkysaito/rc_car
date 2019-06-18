@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>tf_publisher</name>
+  <version>0.0.0</version>
+  <description>tf publisher</description>
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <!-- Example:  -->
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="yukky@ubi.cs.ritsumei.ac.jp">Yukihiro Saito</maintainer>
+
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
