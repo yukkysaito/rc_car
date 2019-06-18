@@ -1,0 +1,3 @@
+[submodule "bldc-tool"]
+	path = bldc-tool
+	url = git@github.com:vedderb/bldc-tool.git
