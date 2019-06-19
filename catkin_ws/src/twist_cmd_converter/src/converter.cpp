@@ -42,7 +42,6 @@ using namespace std;
 
 class TwistCmdConverter {
 private:
-  boost::mutex m_mutex_;
   // ROS
   ros::NodeHandle nh_;
   ros::Subscriber sub_twist_;
