@@ -36,6 +36,7 @@
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <ackermann_msgs/AckermannDriveStamped.h>
+#include <autoware_msgs/ControlCommandStamped.h>
 #include <ros/ros.h>
 
 using namespace std;
@@ -70,7 +71,7 @@ public:
     nh_.getParam("weight_angular_z", w_angular_z_);
   }
 
-  void twistCallback(const geometry_msgs::TwistStampedConstPtr &msg) {
+  void twistCallback(const autoware_msgs::ControlCommandStampedConstPtr &msg) {
     if (pub_twist_.getNumSubscribers() <= 0) {
       return;
     }
@@ -78,8 +79,9 @@ public:
     ackermann_msgs::AckermannDriveStamped output;
     output.header = msg->header;
 
-    output.drive.speed = msg->twist.linear.x * w_linear_x_;
-    output.drive.steering_angle = msg->twist.angular.z * w_angular_z_;
+    output.drive.speed = msg->cmd.linear_velocity * w_linear_x_;
+    output.drive.acceleration = msg->cmd.linear_acceleration * w_linear_x_;
+    output.drive.steering_angle = msg->cmd.steering_angle * w_angular_z_;
 
     pub_twist_.publish(output);
   }
