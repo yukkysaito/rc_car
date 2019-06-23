@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="twist_cmd_converter" name="twist_cmd_converter" type="twist_cmd_converter_node" >
+	<node pkg="ctrl_cmd_converter" name="ctrl_cmd_converter" type="ctrl_cmd_converter_node" >
 		<remap from="twist_in" to="/ctrl_cmd"/>
 		<remap from="twist_out" to="/vesc/ackermann_cmd_mux/input/navigation" />
 		<param name="weight_linear_x" type="double" value="1.0"/>

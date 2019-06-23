@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(twist_cmd_converter)
+project(ctrl_cmd_converter)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -21,12 +21,12 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(twist_cmd_converter_node src/converter.cpp)
-add_dependencies(twist_cmd_converter_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(twist_cmd_converter_node ${catkin_LIBRARIES})
+add_executable(ctrl_cmd_converter_node src/converter.cpp)
+add_dependencies(ctrl_cmd_converter_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(ctrl_cmd_converter_node ${catkin_LIBRARIES})
 
 ## Mark executables and/or libraries for installation
-install(TARGETS twist_cmd_converter_node
+install(TARGETS ctrl_cmd_converter_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

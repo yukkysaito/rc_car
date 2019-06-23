@@ -41,7 +41,7 @@
 
 using namespace std;
 
-class TwistCmdConverter {
+class CtrlCmdConverter {
 private:
   // ROS
   ros::NodeHandle nh_;
@@ -54,13 +54,13 @@ private:
   double w_angular_z_;
 
 public:
-  TwistCmdConverter()
+  CtrlCmdConverter()
       : nh_("~"), queue_size_(1), twist_in_("/twist_in"),
         twist_out_("/twist_out") {
     // Subscribe to the cloud topic using both the old message format and the
     // new
     sub_twist_ = nh_.subscribe(twist_in_, queue_size_,
-                               &TwistCmdConverter::twistCallback, this);
+                               &CtrlCmdConverter::ctrlCmdCallback, this);
 
     pub_twist_ = nh_.advertise<ackermann_msgs::AckermannDriveStamped>(twist_out_, queue_size_);
     nh_.resolveName(twist_in_).c_str();
@@ -71,7 +71,7 @@ public:
     nh_.getParam("weight_angular_z", w_angular_z_);
   }
 
-  void twistCallback(const autoware_msgs::ControlCommandStampedConstPtr &msg) {
+  void ctrlCmdCallback(const autoware_msgs::ControlCommandStampedConstPtr &msg) {
     if (pub_twist_.getNumSubscribers() <= 0) {
       return;
     }
@@ -87,13 +87,13 @@ public:
   }
 };
 
-/* -- twist converter main -- */
+/* -- ctrl_cmd_converter main -- */
 int main(int argc, char **argv) {
   // ROS init
-  ros::init(argc, argv, "twist_cmd_converter",
+  ros::init(argc, argv, "ctrl_cmd_converter",
             ros::init_options::AnonymousName);
 
-  TwistCmdConverter p;
+  CtrlCmdConverter p;
   ros::spin();
 
   return (0);

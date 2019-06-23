@@ -1,7 +1,7 @@
 <!-- -*- mode: XML -*- -->
 <launch>
 	<include file="$(find tf_publisher)/launch/tf_local.launch" />
-	<include file="$(find twist_cmd_converter)/launch/twist_cmd_converter.launch" />
+	<include file="$(find ctrl_cmd_converter)/launch/CtrlCmdConverter.launch" />
 	<include file="$(find razor_imu_9dof)/launch/razor-pub.launch" />
 	<!-- <group ns="r200">
 	       <include file="$(find demo_launch)/launch/r200.launch" />
