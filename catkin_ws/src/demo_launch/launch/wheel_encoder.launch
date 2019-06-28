@@ -1,0 +1,6 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<node name="arduino_controller" pkg="rosserial_python" type="serial_node.py">
+		<param name="_port" value="/dev/ArduinoNano" />
+	</node>
+</launch>
