@@ -1,0 +1,5 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+	<node name="runtime_manager" pkg="runtime_manager" type="runtime_manager_dialog.py">
+	</node>
+</launch>
